@@ -1,26 +1,56 @@
 import CardProd from "./cardProd.jsx";
+
 const productos = () => {
-    let contenido = [{imgUrl:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=253X&client=byoc&paint=P0300&fabric=FKHSW&sa=S01CB%2CS01CE%2CS01HS%2CS02TB%2CS0302%2CS0319%2CS03AG%2CS03MB%2CS0403%2CS0430%2CS0431%2CS0459%2CS0465%2CS0481%2CS0493%2CS04H0%2CS04UR%2CS0534%2CS0544%2CS05AC%2CS0676%2CS06AC%2CS06AK%2CS06C4%2CS06NX%2CS06U2%2CS06WC%2CS0775&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700",
-        titulo:"BMW M3",
-        descripcion:"El BMW M3 es un automóvil deportivo de altas prestaciones basado en el BMW Serie 3, fabricado por la sub-marca Motorsport de BMW.",
-        },{imgUrl: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=255D&client=byoc&paint=P0300&fabric=FKSSW&sa=S01CE%2CS02TE%2CS0302%2CS0316%2CS0319%2CS0322%2CS03G2%2CS0403%2CS043L%2CS0459%2CS0494%2CS04FL%2CS04UR%2CS05AS%2CS05DM%2CS0674%2CS06AC%2CS06AK%2CS06C4%2CS06NX%2CS0775&date=20250227&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700",
-            titulo:"BMW Serie 5",
-            descripcion:"El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
-        },{imgUrl: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0300&fabric=FKUSW&sa=S01ED%2CS02TF%2CS0302%2CS03AT%2CS03MB%2CS0420%2CS0459%2CS0494%2CS04AT%2CS04NW%2CS05A4%2CS05AC%2CS05AS%2CS05DM%2CS06AC%2CS0775%2CS07HW%2CS09T5&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23FFFFFF&width=700",
-            titulo:"BMW X1",
-            descripcion:"El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
+    let contenido = [
+        {
+            coloresDisponibles:["red","blue","black","white"],
+            imgUrlRed:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0C3G&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0C31&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
+            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0475&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0300&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            titulo: "BMW M3",
+            descripcion: "El BMW M3 es un automóvil deportivo de altas prestaciones basado en el BMW Serie 3, fabricado por la sub-marca Motorsport de BMW.",
+            id:"bmwM3"
+        },
+        {
+            coloresDisponibles:["red","blue","black","white"],
+            imgUrlRed:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0C68&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&date=20250304&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
+            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0C1M&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&date=20250304&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0475&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&date=20250304&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0300&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            titulo: "BMW Serie 5",
+            descripcion: "El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
+            id:"bmwS5"
+        },
+        {   coloresDisponibles:["orange","blue","black","white"],
+            imgUrlOrange:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0C66&fabric=FKUSW&sa=S01ED,S02TF,S0302,S0322,S03AT,S03MB,S0402,S0420,S0430,S0431,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S06NX,S0775,S07EV,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0C1M&fabric=FKUSW&sa=S01ED,S02TF,S0302,S03AT,S03MB,S0420,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S0775,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0475&fabric=FKUSW&sa=S01ED,S02TF,S0302,S03AT,S03MB,S0420,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S0775,S07HW,S09T5&date=20240702&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
+            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0300&fabric=FKUSW&sa=S01ED,S02TF,S0302,S03AT,S03MB,S0420,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S0775,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            titulo: "BMW X1",
+            descripcion: "El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
+            id:"bmwX1"
+        },
+        {
+            coloresDisponibles:["red","blue","black","white"],
+            imgUrlRed:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0C57&fabric=FSDJL&sa=S0248,S0319,S0322,S0337,S03HF,S0420,S043M,S0494,S04AA,S04MA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX,S0710,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
+            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0C3Z&fabric=FSDJL&sa=S0248,S0319,S0322,S0337,S03HF,S0420,S043M,S0494,S04AA,S04MA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX,S0710,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
+            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0475&fabric=FSDJL&sa=S0248,S0319,S0322,S0337,S03HF,S0420,S043M,S0494,S04AA,S04MA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX,S0710,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
+            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0300&fabric=FSASW&sa=S01GQ,S0248,S0319,S0322,S0420,S0494,S04AA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
+            titulo: "BMW iX",
+            descripcion: "El BMW iX es un automóvil eléctrico de lujo del segmento F producido por el fabricante alemán BMW.",
+            id:"bmwIx"
         }
-    ,{
-        imgUrl: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26IJ&client=byoc&paint=P0300&fabric=FSASW&sa=S01GQ%2CS0248%2CS0319%2CS0322%2CS0407%2CS0420%2CS0494%2CS04AA%2CS04NB%2CS05AC%2CS05AS%2CS05AT%2CS05DM%2CS0688%2CS06AC%2CS06AK%2CS06C4%2CS06CP%2CS06NX&angle=270&quality=90&sharp=99&resp=jpg&cut=3&bkgnd=%23F6F6F6&width=700",
-        titulo:"BMW iX",
-        descripcion:"El BMW iX es un automóvil eléctrico de lujo del segmento F producido por el fabricante alemán BMW."
-    }]
-        return(
-            <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998"}}>
-            {contenido.map((contenido) =>(
-                <CardProd contenido = {contenido}/>
+    ];
+
+    return (
+        <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998"}}>
+            {contenido.map((item) => (
+                <CardProd contenido={item} key={item.titulo} />
+
             ))}
-            </div>
-        )
+        </div>
+    );
 }
+
 export default productos;

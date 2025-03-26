@@ -64,16 +64,77 @@
   height: 900px;
   display: flex;
   align-items: center;
-  animation: zoomIn 1.4s;
+  animation: entrance 1.4s;
   background-size:cover ;
 }
-@keyframes zoomIn {
+@keyframes entrance {
   0% {
-    transform:scaleZ(0.9);
+    filter: blur(11);
   }
   100% {
-    transform: scale(1);
+    filter: blur(0);
   }
+}
+#red{
+  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C3G&resp=jpg&width=300 ") ;
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  
+}
+#blue{
+  background-image:url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C1M&resp=jpg&width=300 ") ;
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  
+
+}
+#black{
+  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0475&resp=jpg&width=300 ");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  
+}
+#white{
+  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0300&resp=jpg&width=300 ");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+}
+#orange{
+  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C66&resp=jpg&width=300");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+}
+.navColores{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5px;
+  align-items: center;
+}
+.btnColores{
+  transition: 0.3s;
+  border: 1px solid transparent;
+}
+.btnColores:hover{
+  border: 1px solid #ffffff;
+  transform: scale(1.05);
+
 }
 .bannerContent{
   display: flex;
@@ -110,4 +171,27 @@ font-size: 22px;
   justify-content: center;
   align-items: center;
   margin-top: 10px;
+}
+.footer{
+  display: flex;
+  width: 100%;
+  background-color: #212b30;
+  justify-content: center;
+  align-items: center;
+}
+.containerFooter{
+  padding-top: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+.card{
+  transition: 0.5s;
+}
+.card:hover{
+  transform: scale(1.08);
+  background-color: #28373f;
+  color: white;
 }
