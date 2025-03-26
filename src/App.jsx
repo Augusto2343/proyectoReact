@@ -1,6 +1,6 @@
-import Header from './components/Header.jsx';
-import Banner from './components/Banner.jsx';
-import SeccionProductos from './components/seccionProductos.jsx';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Body from './components/body.jsx';
 import './App.css'
 
 
@@ -8,9 +8,9 @@ function App() {
 
   return (
     <>
-    <Header />
-    <Banner/>
-    <SeccionProductos/>
+    <Header/>
+    <Body/>
+    <Footer/>
     </>
   )
 
