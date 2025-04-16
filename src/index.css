@@ -8,6 +8,10 @@
   font-style: normal;
 
 }
+body{
+  width: 100vw;
+  height: 100vh;
+}
 
 .header{
   display: flex;
@@ -194,4 +198,12 @@ font-size: 22px;
   transform: scale(1.08);
   background-color: #28373f;
   color: white;
+}
+.bi-arrow-left:hover{
+  transform: scale(1.2);
+
+
+}
+.bi-arrow-left{
+  transition: 0.5s;
 }

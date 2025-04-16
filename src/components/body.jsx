@@ -2,18 +2,23 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Banner from "./Banner";
-import SeccionProductos from "./SeccionProductos";
-const body = () =>{
-
+import { useRef } from 'react';
+import Productos from "./productos.jsx";
+const Body = () =>{
+    const contenido = useRef(null);
+    const [estadoBtnConfigurar, setEstadoBtnConfigurar] = React.useState(false);
+    useEffect (() => {
+        console.log(estadoBtnConfigurar)
+    },[estadoBtnConfigurar])
     return(
         <>
         <main ref={contenido}>
             <Banner/>
-            <SeccionProductos/>
+            <Productos/>
         </main>
     </>
     
     )
     
 }
-export default body;
+export default Body;

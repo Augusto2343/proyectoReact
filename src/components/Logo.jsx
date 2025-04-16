@@ -1,8 +1,11 @@
+import {Link} from "react-router-dom";
 const logo = () => {
 
   return (
     <div className="logo">
-      <img src={"https://www.bmwusa.com/content/dam/bmw/common/images/logo-icons/BMW/BMW_White_Logo.svg.asset.1695740583851.svg"} alt="Logo bmw" />
+      <Link to={"/"} >
+      <img src="../../logo.png" alt="Logo bmw" />
+      </Link>
     </div>
   );
 }
