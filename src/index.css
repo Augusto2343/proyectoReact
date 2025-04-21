@@ -80,7 +80,7 @@ body{
   }
 }
 #red{
-  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C3G&resp=jpg&width=300 ") ;
+  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C68&resp=jpg&width=300") ;
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -125,6 +125,48 @@ body{
   height: 30px;
 
 }
+#gray{
+  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0A90&resp=jpg&width=300");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+}
+#xltBlue{
+  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C1M&resp=jpg&width=300");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+}
+#lariat{
+  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0A96&resp=jpg&width=300");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+}
+#azure{
+  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C3N&resp=jpg&width=300");
+  background-size: 100%;
+  background-position: center;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+
+}
+.card-text{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 2px;
+  }
 .navColores{
   display: flex;
   flex-flow: row nowrap;
@@ -206,4 +248,9 @@ font-size: 22px;
 }
 .bi-arrow-left{
   transition: 0.5s;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+
+  filter: invert(100%);
 }

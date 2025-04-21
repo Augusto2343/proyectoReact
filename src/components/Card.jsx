@@ -1,6 +1,7 @@
 import CardItem from './CardItem'; // asegurate de tenerlo en la misma carpeta o importar bien
 
 const Card = ({ items }) => {
+
   return (
     <>  
         

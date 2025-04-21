@@ -17,22 +17,18 @@ const Productos = () => {
             })
     useEffect(() =>{
             promesa.then((res) => {
-
-                    console.log(res);
                     setItems(id ? res.filter(item => item.category == id ):res);
-
                 })
-
-                
     },[id])
+
+    const productosMostrar = !id ? items.filter(item => item.destacado === true) : items;
+
     return (
          !id ? <>
             <div className="container-fluid d-flex align-items-center justify-content-center flex-column" style={{backgroundColor:"white", padding:"10px"}}>
                 <h2>{!id ? "Productos destacados" : id}</h2>
                 <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998", padding:"10px"}}>
-
-                    <Card items={items}></Card>
-                
+                    <Card items={productosMostrar}></Card>
                 </div>
             </div>
             </>
@@ -47,13 +43,10 @@ const Productos = () => {
                 <h2>{!id ? "Productos destacados" : id}</h2>
                 </div>
                 <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998", padding:"10px"}}>
-
-                    <Card items={items}></Card>
-                
+                    <Card items={productosMostrar}></Card>
                 </div>
             </div>
             </>
-        
     );
 }
 

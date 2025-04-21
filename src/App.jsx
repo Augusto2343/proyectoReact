@@ -3,11 +3,12 @@ import Footer from "./components/Footer";
 import Body from './components/body.jsx';
 import Categories from "./components/Categories";
 import Productos from "./components/productos.jsx";
+import ItemDetail from "./components/itemDetail.jsx";
 import './App.css'
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 function App() {
-
+    
   return (
     <>
     <BrowserRouter>
@@ -16,7 +17,7 @@ function App() {
         <Route path="/" element={<Body/>}/>
         <Route path="/productos" element={<Categories/>}/>
        <Route path="/categories/:id" element={<Productos/>}/>
-       <Route path="/product-detail/:id" element={<Productos/>}/>
+       <Route path="/product-detail/:id" element={<ItemDetail/>}/>
     </Routes>
     <Footer/>
       

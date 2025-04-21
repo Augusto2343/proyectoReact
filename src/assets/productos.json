@@ -8,7 +8,10 @@
         "titulo": "BMW M3",
         "descripcion": "El BMW M3 es un automóvil deportivo de altas prestaciones basado en el BMW Serie 3, fabricado por la sub-marca Motorsport de BMW.",
         "id":"bmwM3",
-        "category":"sedan"
+        "destacado":true,
+        "category":"sedan",
+        "stock":13,
+        "precio": 12400
     },
     {
        "coloresDisponibles":["red","blue","black","white"],
@@ -19,7 +22,10 @@
         "titulo": "BMW Serie 5",
         "descripcion": "El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
         "id":"bmwS5",
-        "category":"sedan"
+        "destacado":false,
+        "category":"sedan",
+        "stock":20,
+        "precio": 13100
     },
     {  "coloresDisponibles":["orange","blue","black","white"],
         "imgUrlOrange":"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0C66&fabric=FKUSW&sa=S01ED,S02TF,S0302,S0322,S03AT,S03MB,S0402,S0420,S0430,S0431,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S06NX,S0775,S07EV,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
@@ -29,7 +35,10 @@
         "titulo": "BMW X1",
         "descripcion": "El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
         "id":"bmwX1",
-        "category":"suv"
+        "destacado":false,
+        "category":"suv",
+        "stock":5,
+        "precio": 15400
     },
     {
        "coloresDisponibles":["red","blue","black","white"],
@@ -40,7 +49,10 @@
         "titulo": "BMW iX",
         "descripcion": "El BMW iX es un automóvil eléctrico de lujo del segmento F producido por el fabricante alemán BMW.",
         "id":"bmwIx",
-        "category":"suv"
+        "destacado":true,
+        "category":"suv",
+        "stock":18,
+        "precio": 9800
     },
     {
        "coloresDisponibles":["red","blue","black","white"],
@@ -51,7 +63,37 @@
         "titulo": "Toyota Crown",
         "descripcion": "El Toyota Crown es un automóvil de turismo de lujo del segmento E producido por el fabricante japonés Toyota.",
         "id":"toyotaCrown",
-        "category":"sedan"
+        "destacado":true,
+        "category":"sedan",
+        "stock":30,
+        "precio": 8399
 
+    },{
+    "coloresDisponibles":["red","blue","black","white","gray"],
+    "imgUrlRed":"https://build.ford.com/dig/Ford/F-150%20Lightning/2025/HD-TILE-ACC%5BEXTBCK%5D/Image%5B%7CFord%7CF-150%20Lightning%7C2025%7C1%7C1.%7C312A...PD4...CBF.645.855.773.%5D/EXT/1/vehicle.png",
+    "imgUrlBlue":"https://build.ford.com/dig/Ford/F-150%20Lightning/2025/HD-TILE/Image%5B%7CFord%7CF-150%20Lightning%7C2025%7C1%7C1.%7C312A...PHX...63T.96W.47R.CBF.645.855.479.773.%5D/EXT/1/vehicle.png",
+    "imgUrlBlack":"https://build.ford.com/dig/Ford/F-150%20Lightning/2025/HD-TILE-ACC%5BEXTBCK%5D/Image%5B%7CFord%7CF-150%20Lightning%7C2025%7C1%7C1.%7C312A...PUM...CBF.645.855.773.%5D/EXT/1/vehicle.png",
+    "imgUrlW": "https://build.ford.com/dig/Ford/F-150%20Lightning/2025/HD-TILE-ACC%5BEXTBCK%5D/Image%5B%7CFord%7CF-150%20Lightning%7C2025%7C1%7C1.%7C312A...PA3...CBF.645.855.773.%5D/EXT/1/vehicle.png",
+    "imgUrlGray":"https://build.ford.com/dig/Ford/F-150%20Lightning/2025/HD-TILE-ACC%5BEXTBCK%5D/Image%5B%7CFord%7CF-150%20Lightning%7C2025%7C1%7C1.%7C312A...PM7...CBF.645.855.773.%5D/EXT/1/vehicle.png",
+    "titulo": "Ford F-150 Lightning",
+    "descripcion": "El Ford F-150 Lightning es un automóvil eléctrico del segmento de camionetas pickup producido por el fabricante estadounidense Ford.",
+    "id":"fordF150",
+    "destacado":false,
+    "category":"camioneta",
+    "stock":10,
+    "precio": 15000
+    },
+    {
+        "coloresDisponibles":["lariat","xltBlue","azure"],
+        "imgUrlXLTBlue":"https://build.ford.com/dig/Ford/Maverick/2024/HD-TILE[INTBCK]/Image%5B%7CFord%7CMaverick%7C2024%7C1%7C1.%7C300A...PB3..887.89W.96J.54L.59D.60B.47A.51D.64D.FWD.993.%5D/EXT/1/vehicle.png?imwidth=1200",
+        "imgUrlLariat":"https://build.ford.com/dig/Ford/Maverick/2024/HD-TILE[INTBCK]/Image%5B%7CFord%7CMaverick%7C2024%7C1%7C1.%7C500A...PYZ..886.89W.96G.17V.54P.86B.16B.60B.61D.47A.43L.51D.645.66B.4WD.999.%5D/EXT/1/vehicle.png?imwidth=1200",
+        "imgUrlAzure":"https://build.ford.com/dig/Ford/Maverick/2024/HD-TILE[INTBCK]/Image%5B%7CFord%7CMaverick%7C2024%7C1%7C1.%7C300A...PG4..887.89B.96J.54L.86B.60B.47A.64T.FWD.999.%5D/EXT/1/vehicle.png?imwidth=1200",
+        "titulo": "Ford Maverick",
+        "descripcion": "El Ford Maverick es un automóvil del segmento de camionetas pickup producido por el fabricante estadounidense Ford.",
+        "id":"fordMaverick",
+        "destacado":true,
+        "category":"camioneta",
+        "stock":11,
+        "precio": 12000
     }
 ]
