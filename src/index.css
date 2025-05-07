@@ -254,3 +254,12 @@ font-size: 22px;
 
   filter: invert(100%);
 }
+.card:hover{
+  z-index: 999;
+}
+.cardTabla{
+  border: 1px solid #000000;
+  border-radius: 5px;
+  padding: 5px;
+
+}

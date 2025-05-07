@@ -13,7 +13,7 @@ const categories = () =>{
             </Link>
             <h2>Categories</h2>
             </div>
-        <div className="categories ">
+        <div className="categories container-fluid d-flex align-items-center" style={{width:"100vw", height:"100vh"}}>
             
             <div className= "row">
                 <div className="card col-md-4">

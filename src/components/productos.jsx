@@ -1,35 +1,57 @@
 import Card from "./Card";
 import {useEffect} from 'react';
-import ArrayProd from '../assets/productos.json';
 import {useState} from 'react';
 import React from 'react';
 import {useParams} from 'react-router-dom';
 import {Link} from 'react-router-dom';
+import Loading from "./Loading";
+import Error404 from "./Error404";
+import { getDocs, getFirestore, collection } from "firebase/firestore";
+
 const Productos = () => {
     const [items,setItems] = useState([]);
     const {id}= useParams();
     const [estadoBtn, setEstadoBtn] =React.useState("active")
     const [estadoFlecha, setEstadoFlecha] = React.useState("black")
-    const promesa = new Promise(resolve =>{
-            setTimeout(() => {
-                resolve(ArrayProd);
-            }, 2000);
-            })
+    const [cargando, setCargando] = React.useState(true)
     useEffect(() =>{
-            promesa.then((res) => {
-                    setItems(id ? res.filter(item => item.category == id ):res);
-                })
-    },[id])
+        const db= getFirestore();
+        const itemCollection = collection(db,"items");
+        getDocs(itemCollection).then((snapShot)=>{
+            let producto = snapShot.docs.map(items =>({id:items.id, ...items.data()}))
 
+            if(id){
+            producto = producto.filter(item => item.category === id) 
+            console.log("producto devuleve",producto);
+            
+            if(producto.length ==0){
+                setCargando(false)
+
+                return <Error404></Error404>;
+            }
+            setItems(producto)
+            setCargando(false)
+            }
+            else{
+                producto = producto.filter(item => item.destacado === true);
+                console.log(producto);
+                setItems(producto)
+                setCargando(false)
+            
+            }
+            })
+    },[])
     const productosMostrar = !id ? items.filter(item => item.destacado === true) : items;
 
     return (
+        !cargando ?
          !id ? <>
             <div className="container-fluid d-flex align-items-center justify-content-center flex-column" style={{backgroundColor:"white", padding:"10px"}}>
                 <h2>{!id ? "Productos destacados" : id}</h2>
                 <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998", padding:"10px"}}>
                     <Card items={productosMostrar}></Card>
                 </div>
+                <Link to={"/productos"}><button className="btn btn-primary">Ver más</button></Link>
             </div>
             </>
             :
@@ -47,7 +69,9 @@ const Productos = () => {
                 </div>
             </div>
             </>
-    );
+        :
+        <Loading></Loading>
+);
 }
 
 export default Productos;

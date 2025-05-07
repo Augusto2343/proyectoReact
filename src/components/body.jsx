@@ -2,6 +2,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import Banner from "./Banner";
+import Firebase from './Firebase.jsx';
 import { useRef } from 'react';
 import Productos from "./productos.jsx";
 import Nosotros from "./seccionNosotros.jsx"
@@ -19,6 +20,7 @@ const Body = () =>{
             <Nosotros/>
             <Productos/>
             <Ofertas/>
+            <Firebase/>
         </main>
     </>
     

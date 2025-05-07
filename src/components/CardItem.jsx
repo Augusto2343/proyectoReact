@@ -5,7 +5,7 @@ const CardItem = ({ item }) => {
   const [estadoImg, setEstadoImg] = React.useState("white");
 
   const getImageSource = () => {
-    if(item.id !="fordMaverick"){
+    if(item.idx !="fordMaverick"){
           
     switch (estadoImg) {
       case "white":
@@ -55,7 +55,7 @@ const CardItem = ({ item }) => {
       })
       
       cards.forEach(element=>{
-        console.log(element)
+        
         element.classList.add("placeholder-glow")
         
       })
@@ -71,12 +71,12 @@ const CardItem = ({ item }) => {
         })
         
         cards.forEach(element=>{
-          console.log(element)
+          
           element.classList.remove("placeholder-glow")
           
         })
       },2000)
-  },)
+  },[])
   const palabras = item.descripcion.split(' ');
   return (
     <div
@@ -122,7 +122,7 @@ const CardItem = ({ item }) => {
           )
             )
         }</p>
-        <Link to={"/product-detail/"+item.id} className=" btn btn-primary configurarBtn cardContent">Configurar</Link>
+        <Link to={"/product-detail/"+item.idx} className=" btn btn-primary configurarBtn cardContent">Configurar</Link>
       </div>
     </div>
   );
