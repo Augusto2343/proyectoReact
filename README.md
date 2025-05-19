@@ -2,7 +2,7 @@
 
 **Autos Express** es una tienda online construida con **React JS**, especializada en la venta de vehículos. La aplicación proporciona una experiencia fluida para explorar categorías de autos, ver productos destacados, consultar detalles de cada auto a escala y gestionar un carrito de compras.
 
-🔗 [Visitar la página web]([https://autos-express-eo0kv3ksb-augusto2343s-projects.vercel.app/categories/sedan](https://autos-express.vercel.app))
+🔗 [Visitar la página web](https://autos-express.vercel.app)
 
 ## 🛠️ Tecnologías Utilizadas
 
