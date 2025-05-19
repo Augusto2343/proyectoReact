@@ -1,12 +1,51 @@
-import { useContext, useEffect,useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import { CartContext } from './context/cartContext';
 import { Link } from 'react-router-dom';
 import NoProducts from "./NoProducts.jsx";
 
+const useAnimatedNumber = (targetValue, duration = 1000) => {
+    const [displayValue, setDisplayValue] = useState(targetValue);
+    const previousValue = useRef(targetValue);
+    const animationFrame = useRef(null);
+
+    useEffect(() => {
+        const startTime = performance.now();
+        const startValue = previousValue.current;
+        const endValue = targetValue;
+        const valueDiff = endValue - startValue;
+
+        const animate = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = startValue + (valueDiff * easeOutQuart);
+
+            setDisplayValue(Math.round(currentValue * 1) / 1);
+
+            if (progress < 1) {
+                animationFrame.current = requestAnimationFrame(animate);
+            }
+        };
+
+        animationFrame.current = requestAnimationFrame(animate);
+        previousValue.current = targetValue;
+
+        return () => {
+            if (animationFrame.current) {
+                cancelAnimationFrame(animationFrame.current);
+            }
+        };
+    }, [targetValue, duration]);
+
+    return displayValue;
+};
+
 const Cart = () => {
     const [estadoFlecha, setEstadoFlecha] = useState("black")
-    
-    const {cart, removeItem, totalProductos, clear, sumaProductos, decrementarProd, aumentarProd,precioTotal,total} = useContext(CartContext);
+    const {cart, removeItem, totalProductos, clear, sumaProductos, decrementarProd, aumentarProd, precioTotal, total} = useContext(CartContext);
+    const animatedTotal = useAnimatedNumber(total);
 
     useEffect(() =>{
         precioTotal()
@@ -19,7 +58,7 @@ const Cart = () => {
     }
 
     return (
-        <div className="container py-5 " >
+        <div className="container py-5 d-flex justify-content-center" style={{"height":"100vh","flexFlow":"column",}} >
             <div className="d-flex align-items-center mb-4">
                 <Link to="/productos" className="text-decoration-none me-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill={estadoFlecha} onMouseOver={() => setEstadoFlecha("#005c7d")} onMouseLeave={() => setEstadoFlecha("black")} className="bi bi-arrow-left" viewBox="0 0 16 16">
@@ -79,8 +118,15 @@ const Cart = () => {
                             </tbody>
                             <tfoot className="bg-light">
                                 <tr>
-                                    <td colSpan="4" className="text-end fw-bold">Total:</td>
-                                    <td className="text-center fw-bold text-primary" style={{fontSize:"30px"}}>{total}</td>
+                                    <td colSpan="4" className="text-end fw-bold" id='totalPrice'>Total:</td>
+                                    <td className="text-center">
+                                        <span 
+                                            className="fw-bold text-primary price-animation" 
+                                            style={{fontSize:"30px", display: "inline-block"}}
+                                        >
+                                            ${animatedTotal}
+                                        </span>
+                                    </td>
                                     <td className="text-center">
                                         <button className="btn btn-danger btn-sm" onClick={clear}>
                                             Vaciar carrito
@@ -102,5 +148,13 @@ const Cart = () => {
         </div>
     )
 }
+
+const style = document.createElement('style');
+style.textContent = `
+    .price-animation {
+        transition: color 0.3s ease-in-out;
+    }
+`;
+document.head.appendChild(style);
 
 export default Cart;

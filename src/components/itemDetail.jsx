@@ -24,6 +24,7 @@ const itemDetail = () =>{
       console.log("Agregaste" + cantidad + "Producto(s) al carrito!!");
       let img = getImageSource()
       let producto={
+        id:items.id,
         idx:items.idx+estadoImg,
         comesFrom:items.idx,
         imagenProd: img,
