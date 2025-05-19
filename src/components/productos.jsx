@@ -1,56 +1,77 @@
-import CardProd from "./cardProd.jsx";
+import Card from "./Card";
+import {useEffect} from 'react';
+import {useState} from 'react';
+import React from 'react';
+import {useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import Loading from "./Loading";
+import Error404 from "./Error404";
+import { getDocs, getFirestore, collection } from "firebase/firestore";
 
-const productos = () => {
-    let contenido = [
-        {
-            coloresDisponibles:["red","blue","black","white"],
-            imgUrlRed:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0C3G&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0C31&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
-            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0475&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25TQ&client=byoc&paint=P0300&fabric=FLKSW&sa=S01T8,S02VF,S0302,S0319,S0322,S03AG,S0430,S0431,S0459,S0493,S0494,S04GQ,S04LN,S0508,S0534,S0544,S05AC,S05AS,S0688,S06AC,S06AK,S06C4,S06NX,S06U2,S06WC,S0712,S0760,S0775,S07M9&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            titulo: "BMW M3",
-            descripcion: "El BMW M3 es un automóvil deportivo de altas prestaciones basado en el BMW Serie 3, fabricado por la sub-marca Motorsport de BMW.",
-            id:"bmwM3"
-        },
-        {
-            coloresDisponibles:["red","blue","black","white"],
-            imgUrlRed:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0C68&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&date=20250304&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
-            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0C1M&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&date=20250304&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0475&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&date=20250304&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=265A&client=byoc&paint=P0300&fabric=FKSSW&sa=S01CE,S0248,S02TE,S0302,S0316,S0319,S0322,S0337,S03GA,S03M1,S0403,S043L,S0459,S0494,S04FL,S0552,S05AS,S05DM,S0674,S06AC,S06AK,S06C4,S06NX,S0704,S0710,S0760,S0775,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            titulo: "BMW Serie 5",
-            descripcion: "El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
-            id:"bmwS5"
-        },
-        {   coloresDisponibles:["orange","blue","black","white"],
-            imgUrlOrange:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0C66&fabric=FKUSW&sa=S01ED,S02TF,S0302,S0322,S03AT,S03MB,S0402,S0420,S0430,S0431,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S06NX,S0775,S07EV,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0C1M&fabric=FKUSW&sa=S01ED,S02TF,S0302,S03AT,S03MB,S0420,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S0775,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0475&fabric=FKUSW&sa=S01ED,S02TF,S0302,S03AT,S03MB,S0420,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S0775,S07HW,S09T5&date=20240702&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
-            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBM&vehicle=25XB&client=byoc&paint=P0300&fabric=FKUSW&sa=S01ED,S02TF,S0302,S03AT,S03MB,S0420,S0459,S0494,S04AT,S04NW,S05A4,S05AC,S05AS,S05DM,S06AC,S0775,S07HW,S09T5&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            titulo: "BMW X1",
-            descripcion: "El BMW Serie 5 es una serie de automóviles de turismo de lujo del segmento E producido por el fabricante alemán BMW.",
-            id:"bmwX1"
-        },
-        {
-            coloresDisponibles:["red","blue","black","white"],
-            imgUrlRed:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0C57&fabric=FSDJL&sa=S0248,S0319,S0322,S0337,S03HF,S0420,S043M,S0494,S04AA,S04MA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX,S0710,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
-            imgUrlBlue:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0C3Z&fabric=FSDJL&sa=S0248,S0319,S0322,S0337,S03HF,S0420,S043M,S0494,S04AA,S04MA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX,S0710,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
-            imgUrlBlack:"https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0475&fabric=FSDJL&sa=S0248,S0319,S0322,S0337,S03HF,S0420,S043M,S0494,S04AA,S04MA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX,S0710,S09T1,S09T2,S09TA&resp=png&quality=81&BKGND=TRANSPARENT&angle=90",
-            imgUrlW: "https://cache.bmwusa.com/cosy.arox?pov=walkaround&brand=WBBI&vehicle=26II&client=byoc&paint=P0300&fabric=FSASW&sa=S01GQ,S0248,S0319,S0322,S0420,S0494,S04AA,S05AC,S05AS,S05AT,S05DM,S0688,S06AC,S06AK,S06C4,S06CP,S06NX&resp=png&quality=81&BKGND=TRANSPARENT&angle=80",
-            titulo: "BMW iX",
-            descripcion: "El BMW iX es un automóvil eléctrico de lujo del segmento F producido por el fabricante alemán BMW.",
-            id:"bmwIx"
-        }
-    ];
+const Productos = () => {
+    const [items,setItems] = useState([]);
+    const {id}= useParams();
+    const [estadoBtn, setEstadoBtn] =React.useState("active")
+    const [estadoFlecha, setEstadoFlecha] = React.useState("black")
+    const [cargando, setCargando] = React.useState(true)
+    useEffect(() =>{
+        const db= getFirestore();
+        const itemCollection = collection(db,"items");
+        getDocs(itemCollection).then((snapShot)=>{
+            let producto = snapShot.docs.map(items =>({id:items.id, ...items.data()}))
+
+            if(id){
+            producto = producto.filter(item => item.category === id) 
+            console.log("producto devuleve",producto);
+            
+            if(producto.length ==0){
+                setCargando(false)
+
+                return <Error404></Error404>;
+            }
+            setItems(producto)
+            setCargando(false)
+            }
+            else{
+                producto = producto.filter(item => item.destacado === true);
+                console.log(producto);
+                setItems(producto)
+                setCargando(false)
+            
+            }
+            })
+    },[])
+    const productosMostrar = !id ? items.filter(item => item.destacado === true) : items;
 
     return (
-        <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998"}}>
-            {contenido.map((item) => (
-                <CardProd contenido={item} key={item.titulo} />
-
-            ))}
-        </div>
-    );
+        !cargando ?
+         !id ? <>
+            <div className="container-fluid d-flex align-items-center justify-content-center flex-column" style={{backgroundColor:"white", padding:"10px"}}>
+                <h2>{!id ? "Productos destacados" : id}</h2>
+                <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998", padding:"10px"}}>
+                    <Card items={productosMostrar}></Card>
+                </div>
+                <Link to={"/productos"}><button className="btn btn-primary">Ver más</button></Link>
+            </div>
+            </>
+            :
+            <>
+            <div className="container-fluid d-flex align-items-center justify-content-center flex-column" style={{backgroundColor:"white", padding:"10px", paddingTop:"100px"}}>
+                <div className="container-fluid d-flex align-items-center flex-row" style={{ width:"100%", justifyContent:"space-between",padddingLeft:"50px", paddingRight:"50px"}}>
+                <Link to="/productos"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill={estadoFlecha} onMouseOver={() =>setEstadoFlecha("#005c7d")} onMouseLeave={()=>setEstadoFlecha("black")} className="bi bi-arrow-left" viewBox="0 0 16 16">
+                    <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+                </svg>
+                </Link>
+                <h2>{!id ? "Productos destacados" : id}</h2>
+                </div>
+                <div className="cardContainers" style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center",zIndex:"998", padding:"10px"}}>
+                    <Card items={productosMostrar}></Card>
+                </div>
+            </div>
+            </>
+        :
+        <Loading></Loading>
+);
 }
 
-export default productos;
+export default Productos;
