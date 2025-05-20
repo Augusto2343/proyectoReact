@@ -98,10 +98,10 @@ const itemDetail = () =>{
             <h2>{items.titulo}</h2>
             </div>
               <div  className="row d-flex align-items-center">
-              <div className="col-md-7" style={{display:"flex", flexFlow:"row nowrap",gap:"10px",alignItems:"center"}}>
+              <div className="col-md-7 configurador" >
             
               <img src={getImageSource()} className="img-fluid" style={{width:"90%"}}  alt="" />
-              <div className="btnColores d-flex" style={{ flexFlow:"column nowrap",gap:"4px"}}>
+              <div className="btnColores d-flex" >
               {items.coloresDisponibles && items.coloresDisponibles.length > 0 ? (
               items.coloresDisponibles.map((color) => (
                 <button
@@ -126,9 +126,11 @@ const itemDetail = () =>{
                 {
                   items.stock>0?
                   <>
+                  <div className="botonesCompra">
                     <Contador cantMax={items.stock} onAdd={cantidad => onAdd(cantidad)} />
+
                     <Link to="/cart" style={{width:"auto"}} ><button className="btn btn-primary">Finalizar compra</button></Link>
-                    
+                  </div>
                    </>
                    :
                    <span>No tenemos stock lo sentimos</span>
