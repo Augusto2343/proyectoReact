@@ -24,7 +24,7 @@ const contador = ({cantMax,onAdd}) =>{
         })
     };
     return(
-        <div className="container ">
+        <div className="container d-flex" style={{alignItems:"center",gap:"5px"}}>
             <div className="btn-group" role="group" aria-label="Basic outlined example" style={{width:"auto"}}>
                 <button type="button" className="btn btn-outline-primary" onClick={incrementar}>+</button>
                 <button type="button" className="btn btn-outline-primary">{contador}</button>

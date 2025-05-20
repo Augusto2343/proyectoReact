@@ -246,6 +246,16 @@ font-size: 22px;
 
 
 }
+.configurador{
+  display:"flex";
+  flex-flow:"row nowrap";
+  gap:10px;
+  align-items:"center";
+}
+.btnColores{
+  flex-flow: column nowrap;
+  gap: 3px;
+}
 .bi-arrow-left{
   transition: 0.5s;
 }
@@ -273,6 +283,12 @@ font-size: 22px;
   margin-top: 15px;
   margin-bottom: 15px;
 }
+.botonesCompra{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 @keyframes priceChange {
   0% {
       transform: scale(1);
@@ -290,4 +306,24 @@ font-size: 22px;
 
 .price-animation {
   animation: priceChange 0.5s ease-in-out;
+}
+@media (max-width:690px){
+  .configurador{
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .btnColores{
+    flex-flow: row nowrap;
+  }
+  .botonesCompra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+}
+@media (max-width:430px){
+  .botonesCompra{
+    flex-flow: column nowrap;
+    gap: 30px;
+  }
 }
