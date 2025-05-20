@@ -10,7 +10,7 @@ const checkout =() =>{
      const [correo,setCorreo] = useState("");
      const [direccion,setDireccion] = useState("");
      const [orderId, setOrderId] = useState("");
-    const [telefono,setTelefono] = useState(0);
+    const [telefono,setTelefono] = useState(null);
     const[productos,setProductos] = useState();
     const [cargando,setCargando] = useState(true);
     const [pedidoFinalizado,setPedidoFinalizado] = useState(false);
@@ -106,12 +106,17 @@ const checkout =() =>{
                 icon:"error"
             }
             )
-            
+        }
+        if(nombre== "" || correo =="" || direccion=="" || telefono ==null){
+            return Swal.fire({
+                title:"Tenes un campo sin completar",
+                icon:"error"
+            })
             
         }
         
         subirPedido();
-       
+        vaciarCampos()
         setPedidoFinalizado(true)
     }
 
@@ -143,7 +148,7 @@ const checkout =() =>{
                 </div>
                 <div className="botones d-flex"  style={{"justifyContent":"space-between"}} >
                     <button onClick={vaciarCampos} className="btn btn-danger ">Cancelar el pedido.</button>
-                    <button onClick={(e)=>{
+                    <button type="submit" onClick={(e)=>{
                     e.preventDefault();
                     realizarPedido()
                     }} className="btn btn-primary">Concretar el pedido.</button>
