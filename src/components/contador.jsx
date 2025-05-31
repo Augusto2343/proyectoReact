@@ -1,8 +1,10 @@
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 import {useState} from 'react';
 const contador = ({cantMax,onAdd}) =>{
     const maxUnities = cantMax;
     const [contador, setContador] = useState(1);
+    const [agregado, setAgregado] = useState(false);
     const incrementar = () => {
         console.log(cantMax);
         
@@ -24,6 +26,7 @@ const contador = ({cantMax,onAdd}) =>{
         })
     };
     return(
+        <div className="container d-flex align-center justify-between ">
         <div className="container d-flex" style={{alignItems:"center",gap:"5px"}}>
             <div className="btn-group" role="group" aria-label="Basic outlined example" style={{width:"auto"}}>
                 <button type="button" className="btn btn-outline-primary" onClick={incrementar}>+</button>
@@ -32,7 +35,11 @@ const contador = ({cantMax,onAdd}) =>{
             </div>
             <button className="btn btn-primary " onClick={() => {onAdd(contador)
                 setContador(1);
+                setAgregado(true);
             }}>Agregar al carrito</button>
+        </div>
+            
+            <Link to="/cart" style={agregado?{ width:"auto" } : {display:"none"}} ><button className="btn btn-primary">Finalizar compra</button></Link>
         </div>
     )
 
