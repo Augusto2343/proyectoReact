@@ -38,7 +38,7 @@ const useAnimatedNumber = (targetValue, duration = 1000) => {
             }
         };
     }, [targetValue, duration]);
-
+    
     return displayValue;
 };
 
@@ -46,7 +46,12 @@ const Cart = () => {
     const [estadoFlecha, setEstadoFlecha] = useState("black")
     const {cart, removeItem, totalProductos, clear, sumaProductos, decrementarProd, aumentarProd, precioTotal, total} = useContext(CartContext);
     const animatedTotal = useAnimatedNumber(total);
+    const [screenWidth,setScreenWidth] = useState(0);
+    useEffect(() =>{
+            const tamanioVentana= window.innerWidth;
+            setScreenWidth(tamanioVentana)
 
+        },[])
     useEffect(() =>{
         precioTotal()
     },[cart])
@@ -67,8 +72,8 @@ const Cart = () => {
                 </Link>
                 <h2 className="mb-0">Tu carrito</h2>
             </div>
-
-            
+            {
+                screenWidth > 770 ?    
                 <div className="cardTabla shadow-sm">
                     <div className="table-responsive">
                         <table className="table align-middle mb-10">
@@ -137,9 +142,80 @@ const Cart = () => {
                         </table>
                     </div>
                 </div>
+                :
+                
+                    cart.map((item)=>
+                        <div key={item.idx} className="col-sm 6">
+                        <div className='card'>
+                            <div className="card-body ">
+                                <div className="row">
+                                        <div className="col md">
+                                        <img className='img-thumbnail' src={item.imagenProd} alt={item.title} />
+                                        </div>
+                                        <div className="col d-flex flex-column" style={{justifyContent:"space-between"}}>
+                                        <div className="row ">
+                                            <h2 className='row'>
+                                                {item.titulo}
+                                            </h2>
+                                            <h5 className='row' >
+                                               Precio por unidad: $ {item.precio}
+                                            </h5>
+                                        </div>
+                                            <div className="row">
+                                                <h4 className='text-sm'>
+                                                    Precio total: ${item.quantity * item.precio}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div className="row " style={{"marginTop":"10px"}}>
+                                    <div className="col md">
+                                        <div className="d-flex align-items-center justify-content-center">
+                                                <button className="btn btn-sm btn-outline-secondary me-2" onClick={() => decrementarProd(item.idx)}>
+                                                    <i className="bi bi-dash"></i>
+                                                </button>
+                                                <span className="mx-2">{item.quantity}</span>
+                                                <button className="btn btn-sm btn-outline-secondary ms-2" onClick={() => aumentarProd(item.idx)}>
+                                                    <i className="bi bi-plus"></i>
+                                                </button>
+                                            </div>
+                                    </div>
+                                    <div className="col sm d-flex flex-column"style={{alignItems:"flex-end",justifyContent:""}} >
+                                         <button className="btn  btn-outline-danger btn-sm"  onClick={() => removeItem(item.idx)}>
+                                                <i className="bi bi-trash"></i>
+                                            </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    )
+                    
+            
+                
+                }
+                <div className="totalClearCart">
+                    <h2 className=''>Total a pagar: <span 
+                                            className="fw-bold text-primary price-animation" 
+                                            style={{fontSize:"30px", display: "inline-block"}}
+                                        >
+                                            ${animatedTotal}
+                                        </span></h2>
+                    <div className="container ">
+                    
+                        <button className="btn btn-danger btn-sm" onClick={clear}>
+                                Vaciar carrito
+                        </button>
+                    
+                    </div>
+
+                </div>
+            
+                
             
 
             <div className="d-flex justify-content-end mt-4">
+                
                 <Link to="/checkout" className="btn btn-primary">
                     Proceder al pago
                     <i className="bi bi-arrow-right ms-2"></i>

@@ -8,11 +8,12 @@
   font-style: normal;
 
 }
-body{
-  width: 100vw;
-  height: 100vh;
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-
 .header{
   display: flex;
   flex-flow: row nowrap;
@@ -21,6 +22,8 @@ body{
   padding: 5px;
   background-color: #212b3079;
   position: fixed;
+  top: 0;
+  right: 0;
   width: 100%;
   transition: 0.75s;
 }
@@ -294,6 +297,22 @@ font-size: 22px;
     flex-flow: row nowrap;
     align-items: center;
   }
+.cartasModelos{
+  border: "1px solid #000";
+  border-radius: "10px";
+  margin: "10px";
+  padding: "20px";
+  display: "flex";
+  flex-flow: "column nowrap";
+  justify-content: "center";
+  align-items: "center";
+}
+.categories{
+  height: 100vh;
+}
+.productosContainer{
+  height: 100vh;
+}
 @keyframes priceChange {
   0% {
       transform: scale(1);
@@ -331,4 +350,15 @@ font-size: 22px;
     flex-flow: column nowrap;
     gap: 30px;
   }
+}
+@media(max-width:380px){
+  .imgLogo{
+    width: 80px;
+    height: 100%;
+  }
+}
+@media(max-width:770px){
+ .categories{
+  height: 100%;
+ } 
 }
