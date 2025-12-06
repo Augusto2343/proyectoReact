@@ -64,8 +64,8 @@ html, body {
   transform: scale(1.1);
 }
 .bannerBack{
-  background-image: url("https://www.bmwusa.com/content/dam/bmw/common/homepage/fmas/2024-09/desktop/BMW-Offers-March2025-iX-Homepage-FMA-Desktop-v2.jpg");
-  background-size:100%;
+  background-image: url("https://cdn.buttercms.com/VIDEDoBkROSsIwUm2LRy");
+  background-size:90%;
   background-position: center;
   background-repeat: no-repeat;
   height: 900px;
@@ -73,6 +73,31 @@ html, body {
   align-items: center;
   animation: entrance 1.4s;
   background-size:cover ;
+}
+.bannerBack::before{
+    transform-origin: top;
+    height: 100%;
+    transform: scaleY(0);
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(to bottom,#000000bb, #0000);
+    z-index: 1;
+    animation: entranceBann 2s;
+    transform: scaleY(1);
+}
+@keyframes entranceBann {
+  0%{
+      transform: scaleY(0);
+  }
+  100%{
+      transform: scaleY(1);
+
+  }
+}
+.bannerBack > *{
+    position: relative;
+    z-index: 2;
 }
 @keyframes entrance {
   0% {
@@ -83,7 +108,7 @@ html, body {
   }
 }
 #red{
-  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C68&resp=jpg&width=300") ;
+  background-image:linear-gradient(to top left, #332424,rgb(255, 30, 0)) ;
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -92,7 +117,7 @@ html, body {
   
 }
 #blue{
-  background-image:url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C1M&resp=jpg&width=300 ") ;
+  background-image:linear-gradient(to top left, #332424,rgb(30, 0, 255)) ;  
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -102,7 +127,7 @@ html, body {
 
 }
 #black{
-  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0475&resp=jpg&width=300 ");
+  background-image: linear-gradient(to top left,#363636,#000);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -111,7 +136,7 @@ html, body {
   
 }
 #white{
-  background-image: url(" https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0300&resp=jpg&width=300 ");
+  background-image: linear-gradient(to top left,#b9b9b9,#fff);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -120,7 +145,7 @@ html, body {
 
 }
 #orange{
-  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C66&resp=jpg&width=300");
+  background-image: linear-gradient(to top left,#3e231c,#ff6200);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -129,7 +154,7 @@ html, body {
 
 }
 #gray{
-  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0A90&resp=jpg&width=300");
+    background-image: linear-gradient(to top left,#000000,#626262);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -138,7 +163,7 @@ html, body {
 
 }
 #xltBlue{
-  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C1M&resp=jpg&width=300");
+  background-image: linear-gradient(to top left,#363636,#00349c);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -147,7 +172,7 @@ html, body {
 
 }
 #lariat{
-  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0A96&resp=jpg&width=300");
+  background-image: linear-gradient(to top left,#acacac,#fff);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -156,7 +181,7 @@ html, body {
 
 }
 #azure{
-  background-image: url("https://cache.bmwusa.com/cosy.arox?brand=wbbm&client=byoc&view=tile_wide&paint=P0C3N&resp=jpg&width=300");
+  background-image: linear-gradient(to top left,#36494a,#5f8086);
   background-size: 100%;
   background-position: center;
   border-radius: 50%;
@@ -194,6 +219,7 @@ html, body {
 } 
 .textBanner{
   color: white;
+  z-index: 999;
 }
 .titleBanner{
   text-align: center;
