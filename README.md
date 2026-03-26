@@ -8,7 +8,7 @@
 
 - **React JS** – Librería principal para la construcción de la interfaz.
 - **React Router DOM** – Para navegación entre páginas.
-- **CSS y Bootstrapz   – Estilos y diseño visual.
+- **CSS y Bootstrap   – Estilos y diseño visual.
 - **Vercel** – Hosting y despliegue.
 
 ---
